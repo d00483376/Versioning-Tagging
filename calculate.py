@@ -17,6 +17,8 @@ def compute(operation, a, b):
             logger.warning("Division by zero attempted")
             return "Error: Cannot divide by zero"
         return a / b
+    elif operation == 'power':
+        return a ** b
     else:
         logger.warning("Unsupported operation: %s", operation)
         return "Error: Unsupported operation"
@@ -28,3 +30,4 @@ if __name__ == "__main__":
     print(compute('multiply', 5, 3))   # Output: 15
     print(compute('divide', 5, 3))     # Output: 1.666...
     print(compute('divide', 5, 0))     # Error
+    print(compute('power', 2, 3))      # Output: 8
