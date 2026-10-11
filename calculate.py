@@ -1,4 +1,11 @@
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 def calculate(operation, a, b):
+    logger.info("Calculation requested: %s, %s, %s", operation, a, b)
+
     if operation == 'add':
         return a + b
     elif operation == 'subtract':
@@ -7,9 +14,11 @@ def calculate(operation, a, b):
         return a * b
     elif operation == 'divide':
         if b == 0:
+            logger.warning("Division by zero attempted")
             return "Error: Cannot divide by zero"
         return a / b
     else:
+        logger.warning("Unsupported operation: %s", operation)
         return "Error: Unsupported operation"
 
 # Example usage
