@@ -3,7 +3,11 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def compute(operation, a, b):
+def compute(data):
+    operation = data["operation"]
+    a = data["a"]
+    b = data["b"]
+
     logger.info("Calculation requested: %s, %s, %s", operation, a, b)
 
     if operation == 'add':
@@ -25,9 +29,9 @@ def compute(operation, a, b):
 
 # Example usage
 if __name__ == "__main__":
-    print(compute('add', 5, 3))        # Output: 8
-    print(compute('subtract', 5, 3))   # Output: 2
-    print(compute('multiply', 5, 3))   # Output: 15
-    print(compute('divide', 5, 3))     # Output: 1.666...
-    print(compute('divide', 5, 0))     # Error
-    print(compute('power', 2, 3))      # Output: 8
+    print(compute({"operation": "add", "a": 5, "b": 3}))
+    print(compute({"operation": "subtract", "a": 5, "b": 3}))
+    print(compute({"operation": "multiply", "a": 5, "b": 3}))
+    print(compute({"operation": "divide", "a": 6, "b": 3}))
+    print(compute({"operation": "divide", "a": 5, "b": 0}))
+    print(compute({"operation": "power", "a": 2, "b": 3}))
