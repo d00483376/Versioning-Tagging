@@ -28,6 +28,11 @@ def compute(data):
         return a // b
     elif operation == 'power':
         return a ** b
+    elif operation == "sqrt":
+        if a < 0:
+            logger.warning("Square root of negative number attempted")
+            return "Error: Cannot calculate square root of a negative number"
+        return a ** 0.5
     else:
         logger.warning("Unsupported operation: %s", operation)
         return "Error: Unsupported operation"
@@ -41,3 +46,4 @@ if __name__ == "__main__":
     print(compute({"operation": "divide", "a": 5, "b": 0}))
     print(compute({"operation": "power", "a": 2, "b": 3}))
     print(compute({"operation": "floor_divide", "a": 10, "b": 3}))
+    print(compute({"operation": "sqrt", "a": 25, "b": 0}))
