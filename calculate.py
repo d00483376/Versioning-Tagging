@@ -21,6 +21,11 @@ def compute(data):
             logger.warning("Division by zero attempted")
             return "Error: Cannot divide by zero"
         return a / b
+    elif operation == "floor_divide":
+        if b == 0:
+            logger.warning("Integer division by zero attempted")
+            return "Error: Cannot divide by zero"
+        return a // b
     elif operation == 'power':
         return a ** b
     else:
@@ -35,3 +40,4 @@ if __name__ == "__main__":
     print(compute({"operation": "divide", "a": 6, "b": 3}))
     print(compute({"operation": "divide", "a": 5, "b": 0}))
     print(compute({"operation": "power", "a": 2, "b": 3}))
+    print(compute({"operation": "floor_divide", "a": 10, "b": 3}))
